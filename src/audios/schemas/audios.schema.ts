@@ -5,3 +5,9 @@ export const AudioSchema = new mongoose.Schema({
     len: Number,
     id: Number
 });
+
+export interface Audio {
+    id: number;
+    name: string;
+    len: number;
+}

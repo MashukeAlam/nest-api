@@ -2,29 +2,31 @@ import { Injectable } from '@nestjs/common';
 import { CreateAudioDto } from './dto/create-audio.dto';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { AudioSchema } from './schemas/audios.schema';
+import { Audio, AudioSchema } from './schemas/audios.schema';
 
 @Injectable()
 export class AudiosService {
-    constructor (@InjectModel('Audio') private readonly audio) {}
-    private audios = [
-        {id: 1, name: "Hailee"},
-        {id: 2, name: "Jane"}
-    ];
+    constructor (@InjectModel('Audio') private readonly audio: Model <Audio>) {}
+    
 
     getAudios() {
-        return this.audios;
+        const result = this.audio.find();
+        return result;
     }
 
     getSingle(id: number) {
-        return this.audios.find(el => el.id == id);
+        
     }
 
-    createAudio(cad: CreateAudioDto) {
+    async createAudio(cad: CreateAudioDto) {
         const newAudio = {
             ...cad, id: Date.now()
-        }
 
-        this.audios.push(newAudio);
+
+        };
+        console.log(cad.name, cad.len);
+        
+        const brandNewAudio = new this.audio(cad);
+        console.log(await brandNewAudio.save());
     }
 }
