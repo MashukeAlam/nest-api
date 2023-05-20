@@ -1,10 +1,9 @@
 import ListItem from "./ListItem";
-
-const List = ({listName, audiosList}) => {
+import FileUpload from "./FileUpload";
+const List = ({audiosList}) => {
     return (
     <>
-    
-        <div>Hello {listName}</div>
+        <FileUpload></FileUpload>
         <ul>
             {audiosList.map(e => <ListItem key={e._id} name={e.name} len={e.len}></ListItem>)}
         </ul>

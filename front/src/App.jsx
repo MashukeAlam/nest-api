@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 import Header from './components/Header'
+import Player from './components/Player'
 import List from './components/List'
 import axios from 'axios'
 
@@ -15,8 +16,10 @@ function App() {
   return (
     <>
     
-      
-      {audios != null ? <List listName={"Audios"} audiosList={audios}></List> : <p>Loading...</p>}
+      <div className="container">
+      <Player></Player>
+      {audios != null ? <List audiosList={audios}></List> : <p>Loading...</p>}
+      </div>
     
       
     </>
