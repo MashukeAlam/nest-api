@@ -3,17 +3,19 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import Header from './components/Header'
+import axios from 'axios'
 
 function App() {
   const [count, setCount] = useState(0)
   const [audios, setAudios] = useState(null)
 
   useEffect(() => {
-    fetch('/api/audios')
-  })
+    axios.get('/api/audios').then(res => setAudios(res.data)).catch(err => console.error(err))
+  }, [])
   return (
     <>
     <Header></Header>
+    {/* {audios.map(a => (<li key={a._id}>{a.name}</li>))} */}
       <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
