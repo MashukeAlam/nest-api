@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import Header from './components/Header'
+import List from './components/List'
 import axios from 'axios'
 
 function App() {
@@ -15,8 +16,10 @@ function App() {
   }, [])
   return (
     <>
-    <Header></Header>
-    {audios.map(a => (<li key={a._id}>{a.name}</li>))}
+    
+      
+      {audios != null ? <List listName={"Audios"} audiosList={audios}></List> : <p>Loading...</p>}
+    
       <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
