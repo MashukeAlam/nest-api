@@ -12,9 +12,13 @@ export class UploadController {
 
     @Post() 
     @UseInterceptors(FileInterceptor('fileAudio', {
+        
         storage: diskStorage({
+            destination: './uploads',
             filename: (req, file, cb) => {
                 const newFileName = `${file.originalname}-${Date.now()}.${extname(file.originalname)}`;
+                console.log(newFileName);
+                
                 cb(null, newFileName);
             }
         })
