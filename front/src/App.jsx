@@ -6,7 +6,6 @@ import List from './components/List'
 import axios from 'axios'
 
 function App() {
-  const [count, setCount] = useState(0)
   const [audios, setAudios] = useState(null)
 
   useEffect(() => {

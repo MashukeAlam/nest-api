@@ -16,6 +16,8 @@ export class UploadController {
         storage: diskStorage({
             destination: './uploads',
             filename: (req, file, cb) => {
+                console.log("Here");
+                
                 const newFileName = `${file.originalname}-${Date.now()}.${extname(file.originalname)}`;
                 console.log(newFileName);
                 
