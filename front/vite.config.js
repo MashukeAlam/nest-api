@@ -12,6 +12,12 @@ export default defineConfig({
         changeOrigin: true,
         secure: false,
         rewrite: path => path.replace('/api', ''),
+      },
+      '/upload': {
+        target: "http://localhost:3333/upload",
+        changeOrigin: true,
+        secure: false,
+        rewrite: path => path.replace('/upload', ''),
       }
     }
   }
