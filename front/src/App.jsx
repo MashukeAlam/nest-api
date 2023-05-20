@@ -10,7 +10,8 @@ function App() {
   const [audios, setAudios] = useState(null)
 
   useEffect(() => {
-    axios.get('/api/audios').then(res => setAudios(res.data)).catch(err => console.error(err))
+    axios.get('localhost:3333/audios').then(res => setAudios(res.data)).catch(err => console.error(err))
+    console.log(audios);
   }, [])
   return (
     <>
