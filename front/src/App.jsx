@@ -10,13 +10,13 @@ function App() {
   const [audios, setAudios] = useState(null)
 
   useEffect(() => {
-    axios.get('localhost:3333/audios').then(res => setAudios(res.data)).catch(err => console.error(err))
+    axios.get('/api').then(res => setAudios(res.data)).catch(err => console.error(err))
     console.log(audios);
   }, [])
   return (
     <>
     <Header></Header>
-    {/* {audios.map(a => (<li key={a._id}>{a.name}</li>))} */}
+    {audios.map(a => (<li key={a._id}>{a.name}</li>))}
       <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
