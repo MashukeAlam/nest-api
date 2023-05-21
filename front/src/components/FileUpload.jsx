@@ -25,12 +25,12 @@ const FileUpload = () => {
     }
     return (
         <>
-         <div>
-            <form onSubmit={e => e.preventDefault()}>
-                <input type="file" onChange={onChange} />
-                <button onClick={handleUpload}>upload</button>
-            </form>
-        </div>
+            <div>
+                <form onSubmit={e => e.preventDefault()}>
+                    <input type="file" onChange={onChange} />
+                    <button onClick={handleUpload}>upload</button>
+                </form>
+            </div>
         </>
     )
 }

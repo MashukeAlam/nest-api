@@ -2,7 +2,7 @@ const Player = () => {
     return (
         <>
         <div>
-            Audio Player
+            <audio controls src={"/sometimes.mp3"} />
         </div>
         </>
     )
