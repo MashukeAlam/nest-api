@@ -1,5 +1,6 @@
 import Image from "./Image";
 import './styles/media.css';
+import { HiPlay, HiPause, HiArrowPathRoundedSquare } from "react-icons/hi2";
 const Player = () => {
     return (
         <>
@@ -7,13 +8,13 @@ const Player = () => {
             <Image cover={"cover.jpg"}></Image>
             <div className="controls">
                 <div className="btn">
-                    <button>Play</button>
+                    <button><HiPlay /></button>
                 </div>
                 <div className="btn">
-                    <button>Pause</button>
+                    <button><HiPause /></button>
                 </div>
                 <div className="btn">
-                    <button>Loop</button>
+                    <button><HiArrowPathRoundedSquare /></button>
                 </div>
             </div>
             <audio controls src={"/sometimes.mp3"} />
