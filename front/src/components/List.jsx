@@ -4,9 +4,13 @@ const List = ({audiosList}) => {
     return (
     <>
         <FileUpload></FileUpload>
-        <ul>
+        <div>
+ <ul>
             {audiosList.map(e => <ListItem key={e._id} name={e.name} len={e.len}></ListItem>)}
         </ul>
+
+        </div>
+       
     </>
     
     )
