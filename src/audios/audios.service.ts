@@ -11,7 +11,6 @@ export class AudiosService {
 
     getAudios() {
         const result = this.audio.find();
-        console.log("A wild request arrived!");
         
         return result;
     }
