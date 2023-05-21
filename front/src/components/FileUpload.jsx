@@ -1,33 +1,34 @@
-import axios from 'axios'
-import {useState} from 'react'
+import React,{ ChangeEvent, useState } from "react";
+import axios from "axios";
 const FileUpload = () => {
     const [file, setFile] = useState(null);
-    const handle = async (e) => {
-        console.log("Hello?");
-        e.preventDefault()
-        const formData = new FormData();
-        formData.append("selectedFile", file);
-        console.log(file);
 
-        axios.post('/upload', formData, {
-            headers: {
-              'Content-Type': 'multipart/form-data'
-            }
-        })
-
-        axios.get('/api').then(res => console.log(res.data)).catch(err => console.error(err))
-    
+    const onChange = (file) => {
+        const { files } = file.target;
+        if (files && files.length !== 0) {
+          setFile(files[0]);
+        }
     }
 
-    const fileset = (e) => {
-        setFile(e.target.files[0]);
+    const handleUpload = async () => {
+        const formData = new FormData();
+        formData.append('fileAudio', file)
+        const upload = await axios({
+            url:"http://localhost:3333/upload",
+            method:"post",
+            
+            data:formData
+        }).then(r => r);
+
+        console.log(upload);
+        
     }
     return (
         <>
-        <div className="container-fileupload">
-            <form onSubmit={handle}>
-                <input type="file" name="fileAudio" id="" onChange={fileset}/>
-                <input type="submit" value="Upload" />
+         <div>
+            <form onSubmit={e => e.preventDefault()}>
+                <input type="file" onChange={onChange} />
+                <button onClick={handleUpload}>upload</button>
             </form>
         </div>
         </>

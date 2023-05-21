@@ -11,13 +11,13 @@ export default defineConfig({
         target: "http://localhost:3333/audios",
         changeOrigin: true,
         secure: false,
-        rewrite: path => path.replace('/api', ''),
+        rewrite: path => path.replace('/api', '')
       },
       '/upload': {
-        target: "localhost:3333/upload",
+        target: "http://localhost:3333/upload",
         changeOrigin: true,
         secure: false,
-        rewrite: path => path.replace('/upload', ''),
+        rewrite: path => path.replace('/upload', '')
       }
     }
   }

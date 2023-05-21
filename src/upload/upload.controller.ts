@@ -1,4 +1,4 @@
-import { Controller, Post, UploadedFile, UseInterceptors } from '@nestjs/common';
+import { Controller, Get, Post, UploadedFile, UseInterceptors } from '@nestjs/common';
 import { UploadService } from './upload.service';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { diskStorage } from 'multer';
@@ -16,11 +16,7 @@ export class UploadController {
         storage: diskStorage({
             destination: './uploads',
             filename: (req, file, cb) => {
-                console.log("Here");
-                
                 const newFileName = `${file.originalname}-${Date.now()}.${extname(file.originalname)}`;
-                console.log(newFileName);
-                
                 cb(null, newFileName);
             }
         })
@@ -28,8 +24,9 @@ export class UploadController {
     uploadSingleAudio(@UploadedFile() file: Express.Multer.File) {
         
         
-        console.log(file.originalname);
         
-        return "response";
+        
+        
+        return file;
     }
 }
