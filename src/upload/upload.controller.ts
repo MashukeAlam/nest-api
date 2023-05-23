@@ -22,10 +22,21 @@ export class UploadController {
             }
         })
     }))
-    uploadSingleAudio(@UploadedFile() file: Express.Multer.File) {
-        
-        
-        
+    async uploadSingleAudio(@UploadedFile() file: Express.Multer.File) {
+        const id = Date.now();
+        const options = {
+            method: 'POST',
+            url: 'http://localhost:3333/audios',
+            data: {
+                
+                "name": `${file.filename}-${id}.${extname(file.originalname)}`,
+                "len": 23
+            },
+            headers: {
+              
+            }
+          };
+        await axios.request(options);
         
         
         return file;
