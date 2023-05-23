@@ -15,7 +15,7 @@ export class UploadController {
     @UseInterceptors(FileInterceptor('fileAudio', {
         
         storage: diskStorage({
-            destination: './front/uploads',
+            destination: './front/public',
             filename: (req, file, cb) => {
                 const newFileName = `${file.originalname}-${Date.now()}.${extname(file.originalname)}`;
                 cb(null, newFileName);
