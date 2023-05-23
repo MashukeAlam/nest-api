@@ -3,6 +3,7 @@ import { UploadService } from './upload.service';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { diskStorage } from 'multer';
 import { extname } from 'path';
+import axios from 'axios';
 
 
 
@@ -14,7 +15,7 @@ export class UploadController {
     @UseInterceptors(FileInterceptor('fileAudio', {
         
         storage: diskStorage({
-            destination: './uploads',
+            destination: './front/uploads',
             filename: (req, file, cb) => {
                 const newFileName = `${file.originalname}-${Date.now()}.${extname(file.originalname)}`;
                 cb(null, newFileName);
