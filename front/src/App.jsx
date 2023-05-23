@@ -7,6 +7,12 @@ import axios from 'axios'
 
 function App() {
   const [audios, setAudios] = useState(null)
+  const [song, setSong] = useState(null);
+
+  const change = (name) => {
+    console.log('here', name);
+    setSong(name.name);
+  }
 
   useEffect(() => {
     axios.get('/api').then(res => setAudios(res.data)).catch(err => console.error(err))
@@ -16,8 +22,8 @@ function App() {
     <>
     
       <div className="container">
-      <Player></Player>
-      {audios != null ? <List audiosList={audios}></List> : <p>Loading...</p>}
+      <Player song={song}></Player>
+      {audios != null ? <List change={change} audiosList={audios}></List> : <p>Loading...</p>}
       </div>
     
       

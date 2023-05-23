@@ -10,7 +10,7 @@ const pause = () => {
 }
 
 
-const Player = () => {
+const Player = ({song}) => {
     const [progress, setProgress] = useState(0);
     const setValues = (e) => {
         const percentage = document.getElementById('player').currentTime / document.getElementById('player').duration;
@@ -36,7 +36,7 @@ const Player = () => {
                     <div style={{width: `${progress}px`}} id="bottom" className="bottom"></div>
                 </div>
             </div>
-            <audio onTimeUpdate={setValues} id="player" controls src={"/sometimes.mp3"} />
+            <audio onTimeUpdate={setValues} id="player" controls src={`/${song}`} />
         </div>
         </>
     )

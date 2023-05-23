@@ -17,7 +17,7 @@ export class UploadController {
         storage: diskStorage({
             destination: './front/public',
             filename: (req, file, cb) => {
-                const newFileName = `${file.originalname}-${Date.now()}.${extname(file.originalname)}`;
+                const newFileName = `${file.originalname}}`;
                 cb(null, newFileName);
             }
         })
@@ -29,7 +29,7 @@ export class UploadController {
             url: 'http://localhost:3333/audios',
             data: {
                 
-                "name": `${file.filename}-${id}.${extname(file.originalname)}`,
+                "name": `${file.filename}`,
                 "len": 23
             },
             headers: {
