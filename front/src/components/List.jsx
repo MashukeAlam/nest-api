@@ -5,10 +5,9 @@ const List = ({audiosList, change}) => {
     <>
         <FileUpload></FileUpload>
         <div>
- <ul>
-            {audiosList.map(e => <ListItem key={e._id} name={e.name} len={e.len} change={change}></ListItem>)}
-        </ul>
-
+            <ul>
+                {audiosList.map(e => <ListItem key={e._id} name={e.name} len={e.len} change={change}></ListItem>)}
+            </ul>
         </div>
        
     </>

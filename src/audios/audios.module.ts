@@ -6,7 +6,7 @@ import { AudioSchema } from './schemas/audios.schema';
 
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb://localhost:27017', {useNewUrlParser: true}),
+    MongooseModule.forRoot('mongodb://mongo:27017', {useNewUrlParser: true}),
     MongooseModule.forFeature([{name: 'Audio', schema: AudioSchema}])
   ],
   controllers: [AudiosController],

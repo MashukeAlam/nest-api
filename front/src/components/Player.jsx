@@ -2,6 +2,7 @@ import { useState } from "react";
 import Image from "./Image";
 import './styles/media.css';
 import { HiPlay, HiPause, HiArrowPathRoundedSquare } from "react-icons/hi2";
+
 const play = () => {
     document.getElementById('player').play();
 }
