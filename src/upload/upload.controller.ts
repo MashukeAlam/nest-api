@@ -23,14 +23,14 @@ export class UploadController {
         })
     }))
     async uploadSingleAudio(@UploadedFile() file: Express.Multer.File) {
-        const id = Date.now();
+ 
         const options = {
             method: 'POST',
             url: 'http://localhost:3333/audios',
             data: {
                 
-                "name": `${file.filename}`,
-                "len": 23
+                "name": `${file.filename.slice(0, -1)}`,
+                "len": 20
             },
             headers: {
               
