@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Image from "./Image";
-import './styles/media.css';
+// import './styles/media.css';
 import { HiPlay, HiPause, HiArrowPathRoundedSquare } from "react-icons/hi2";
 
 const play = () => {
@@ -19,22 +19,22 @@ const Player = ({song}) => {
     }
     return (
         <>
-        <div className="all">
+        <div className="all flex flex-col justify-evenly m-16">
             <Image cover={"cover.jpg"}></Image>
-            <div className="controls">
+            <div className="flex flex-row justify-around">
                 <div className="btn">
-                    <button onClick={play}><HiPlay /></button>
+                    <button className="h-16 w-16 border-cyan-300" onClick={play}><HiPlay /></button>
                 </div>
                 <div className="btn">
-                    <button onClick={pause}><HiPause /></button>
+                    <button className="h-16 w-16" onClick={pause}><HiPause /></button>
                 </div>
                 <div className="btn">
-                    <button><HiArrowPathRoundedSquare /></button>
+                    <button className="h-16 w-16"><HiArrowPathRoundedSquare /></button>
                 </div>
             </div>
-            <div className="slider">
-                <div id="top" className="top">
-                    <div style={{width: `${progress}px`}} id="bottom" className="bottom"></div>
+            <div className="w-[400px] h-[25px] bg-emerald-200">
+                <div id="top" className="">
+                    <div style={{width: `${progress}px`}} id="bottom" className="h-[25px] bg-emerald-300"></div>
                 </div>
             </div>
             <audio onTimeUpdate={setValues} id="player" controls src={`/${song}`} />

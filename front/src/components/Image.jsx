@@ -2,7 +2,7 @@ const Image = ({cover}) => {
 
     return (
         <>
-        <img width={"500px"} height={"500px"} src={cover} />
+        <img className="w-[450px] h-[450px" src={cover} />
                 </>
     )
 
