@@ -25,10 +25,10 @@ const FileUpload = () => {
     }
     return (
         <>
-            <div>
+            <div className="flex flex-col bg-cyan-500 rounded-3xl p-6 m-6 w-fit hover:rounded-xl">
                 <form onSubmit={e => e.preventDefault()}>
                     <input type="file" onChange={onChange} />
-                    <button onClick={handleUpload}>upload</button>
+                    <button className="style-btn" onClick={handleUpload}>upload</button>
                 </form>
             </div>
         </>
