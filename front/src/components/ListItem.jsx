@@ -6,7 +6,7 @@ const ListItem = ({ name, len, change }) => {
         <div className="parent flex flex-row items-center group">
             <div className="m-6 p-6 h-24 w-full bg-primary shadow-lg flex flex-row rounded-3xl hover:rounded-xl items-center space-x-4 transition-all">
                 <div className="shrink-0 basis-1/4">
-                    <img className='w-11 h-11' src="/music.svg" alt="" srcset="" />
+                    <img className='w-11 h-11' src="/music.svg" alt="" />
                 </div>
                 <div className='basis-1/2 flex flex-col justify-center'>
                     <div className="text-secondary text-xl font-medium ">{name}</div>

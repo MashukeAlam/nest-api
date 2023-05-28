@@ -21,9 +21,9 @@ function App() {
   return (
     <>
     
-      <div className="container">
-      <Player song={song}></Player>
-      {audios != null ? <List change={change} audiosList={audios}></List> : <p>Loading...</p>}
+      <div className="flex flex-row justify-center items-center bg-slate-200 h-screen">
+        <Player song={song}></Player>
+        {audios != null ? <List change={change} audiosList={audios}></List> : <p>Loading...</p>}
       </div>
     
       

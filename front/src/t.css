@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 .style-btn {
-    @apply rounded-2xl bg-emerald-300 hover:bg-emerald-500 font-bold font-sans tracking-wider p-3
+    @apply rounded-2xl bg-emerald-300 hover:bg-emerald-500 hover:font-bold font-sans tracking-wider p-3 uppercase
 }
