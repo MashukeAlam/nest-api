@@ -30,7 +30,7 @@ const Player = ({song}) => {
             console.log('hey', s);
             mediaElementCreated.current = true;
             const stereoNode = new StereoPannerNode(context, { pan: 0 });
-            stereoNode.pan.value = -1;
+            stereoNode.pan.value = 1;
             s.connect(stereoNode).connect(context.destination);
         }
         document.getElementById('player').play();
@@ -53,9 +53,14 @@ const Player = ({song}) => {
 
     // }, []);
 
+    const getRndInteger = () => {
+        
+      }
+
     const handleMouse = (e) => {
         const stereoNode = new StereoPannerNode(context, { pan: 0 });
-        stereoNode.pan.value = -1;
+        stereoNode.pan.value += 0.5;
+        console.log(stereoNode.pan.value);
         source.connect(stereoNode).connect(context.destination);
         console.log(source, context);
     }

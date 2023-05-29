@@ -30,4 +30,8 @@ export class AudiosService {
         const brandNewAudio = new this.audio(cad);
         console.log(await brandNewAudio.save());
     }
+
+    async deleteById(id: string) {
+        return await this.audio.findByIdAndDelete(id);
+    }
 }
