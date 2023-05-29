@@ -18,7 +18,13 @@ export default defineConfig({
         changeOrigin: true,
         secure: false,
         rewrite: path => path.replace('/upload', '')
-      }
+      },
+      '/del': {
+        target: "http://localhost:3333/audios/",
+        changeOrigin: true,
+        secure: false,
+        rewrite: path => path.replace('/del', '')
+      },
     }
   }
 })

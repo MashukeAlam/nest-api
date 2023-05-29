@@ -1,13 +1,19 @@
 import { useState } from 'react';
 import './styles/style.css'
 import { HiPlay, HiBars3 } from "react-icons/hi2";
-const ListItem = ({ name, len, change }) => {
+import axios from 'axios';
+const ListItem = ({ name, len, id, change }) => {
     const [open, setOpen] = useState(false);
+
+    const handleDelete = () => {
+        console.log(id);
+        axios.delete(`/del/${id}`);
+    }
 
     return (
         <>
             <div className="parent flex flex-row items-center group">
-                <div className="m-6 p-6 h-24 w-full bg-primary shadow-lg flex flex-row rounded-3xl hover:rounded-xl items-center space-x-4 transition-all">
+                <div className="m-6 p-6 h-24 w-full bg-primary shadow-lg flex flex-row rounded-3xl hover:rounded-xl hover:shadow-2xl items-center space-x-4 transition-all">
                     <div className="shrink-0 basis-1/4">
                         <img className='w-11 h-11' src="/music.svg" alt="" />
                     </div>
@@ -23,7 +29,7 @@ const ListItem = ({ name, len, change }) => {
                         </div>
                         {open ? (
                             <div className=''>
-                                <button className='rounded-2xl bg-red-300 hover:bg-red-500 hover:font-bold font-sans tracking-wider p-3 uppercase'>Delete</button>
+                                <button onClick={handleDelete} className='rounded-2xl bg-red-300 hover:bg-red-500 hover:font-bold font-sans tracking-wider p-3 uppercase'>Delete</button>
                             </div>
                         ) : (<></>)}
 
